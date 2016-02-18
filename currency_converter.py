@@ -18,3 +18,6 @@ if symbolToLetters(input_currency):
     input_currency = symbolToLetters(input_currency)
 if symbolToLetters(output_currency):
     output_currency = symbolToLetters(output_currency)
+
+#get exchange rate
+exchangeRates = getExchangeRates(input_currency, output_currency)
