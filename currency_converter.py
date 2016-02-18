@@ -21,3 +21,26 @@ if symbolToLetters(output_currency):
 
 #get exchange rate
 exchangeRates = getExchangeRates(input_currency, output_currency)
+
+if exchangeRates == False:
+    exit()
+
+#prepare response
+response = {
+    'input': {},
+    'output': {},
+}
+
+response['input'] = {
+    'amount': amount,
+    'currency': input_currency,
+}
+
+#build output response
+for key, rate in exchangeRates['rates'].items():
+    response['output'][key] = round(rate * amount, 2)
+
+#JSON response
+response = json.dumps(response, sort_keys=True, indent=4)
+
+print response
